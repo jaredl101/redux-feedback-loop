@@ -9,12 +9,11 @@ import Comments from './../Comments/Comments';
 import Review from './../Review/Review';
 import Success from './../Success/Success';
 
-
 import { connect } from 'react-redux';
-import { HashRouter as Router, Link, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
 
-import axios from 'axios';
+//import axios from 'axios';
 import './App.css';
 
 class App extends Component {
@@ -36,4 +35,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()(App);

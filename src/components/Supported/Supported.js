@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { withRouter } from "react-router";
-
-
-
 
 class Supported extends Component {
   state = {
@@ -12,7 +8,6 @@ class Supported extends Component {
       support: 0
     }
   }
-
 
   handleChangeFor = (propertyName, event) => {
     this.setState({

@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { withRouter } from "react-router";
-
-
-
 
 class Comments extends Component {
   state = {
       comments: ''
   }
-
 
   handleChangeFor = (propertyName, event) => {
     this.setState({
@@ -31,8 +26,6 @@ class Comments extends Component {
   }
 
   render() {
-
-
     return (
       <div>
         <h2>Any comments you want to leave?</h2>

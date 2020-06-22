@@ -12,15 +12,13 @@ import { Provider } from 'react-redux';
 const feedbackReducer = (state = {  }, action) => {
   let newState = { ...state };
   if (action.type === "ADD_INFO") {
-    // payload need to be an object containing all of the customer info
     newState = { ...newState, ...action.payload };
   }
   return newState;
 };
 
-// The store only accepts one reducer
+
 const storeInstance = createStore(
-  // so we have to combine them first
   combineReducers({
     feedbackReducer,
   }),
