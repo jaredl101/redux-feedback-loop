@@ -7,6 +7,7 @@ import Understanding from './../Understanding/Understanding';
 import Supported from './../Supported/Supported';
 import Comments from './../Comments/Comments';
 import Review from './../Review/Review';
+import Success from './../Success/Success';
 
 
 import { connect } from 'react-redux';
@@ -28,6 +29,7 @@ class App extends Component {
           <Route exact path='/Supported' component={Supported} />
           <Route exact path='/Comments' component={Comments} />
           <Route exact path='/Review' component={Review} />
+          <Route exact path='/Success' component={Success} />
         </div>
       </Router>
     );

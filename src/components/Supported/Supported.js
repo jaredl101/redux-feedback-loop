@@ -8,7 +8,9 @@ import { withRouter } from "react-router";
 
 class Supported extends Component {
   state = {
+    responseToAdd: {
       support: 0
+    }
   }
 
 
@@ -23,6 +25,10 @@ class Supported extends Component {
 
   submitInfo = (event) => {
     // entry validation is done by the required attribute
+    if (this.state.responseToAdd.support > 5 || this.state.responseToAdd.support < 0) {
+      alert('Reponse must be a score between 0-5!')
+      return false;
+    }
     console.log(`Going to comments page`);
     event.preventDefault();
     const { dispatch } = this.props;
@@ -35,8 +41,10 @@ class Supported extends Component {
     return (
       <div>
         <h2>How well are you being supported?</h2>
+        <br />
+        <p>Please enter a score between 0-5:</p>
         <form onSubmit={this.submitInfo}>
-          <input type="text" placeholder="supported?" required
+          <input type="number" placeholder="supported?" required
             // value={this.state.reactionToAdd.feeling}
             onChange={(event) => this.handleChangeFor('support', event)}
           />

@@ -25,7 +25,7 @@ class Feeling extends Component {
   submitInfo = (event) => {
     console.log(`testetsetsetestset ${this.state}`);
     
-    if(this.state.responseToAdd.feeling > 5){
+    if(this.state.responseToAdd.feeling > 5 || this.state.responseToAdd.feeling < 0){
       alert('Reponse must be a score between 0-5!')
       return false;
     }
@@ -43,6 +43,8 @@ class Feeling extends Component {
     return (
       <div>
         <h2>How are you feeling today?</h2>
+        <br />
+        <p>Please enter a score between 0-5:</p>
         <form onSubmit={this.submitInfo}>
           <input type="number" 
           required 
