@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { withRouter } from "react-router";
+
 
 
 
@@ -11,24 +13,20 @@ class Comments extends Component {
     }
   }
 
-  handleChangeFor = (propertyName) => (event) => {
-    this.setState({
-      reactionToAdd: {
-        ...this.state.reactionToAdd,
-        [propertyName]: event.target.value,
-      }
-    });
-  }
 
-  handleSubmit = (event) => {
-    console.log(`Adding new order to pizzaOrder`);
-    const { dispatch } = this.props;
-    dispatch({ type: 'ADD_FEELING', payload: this.state.reactionToAdd });
+  handleChangeFor = (propertyName, event) => {
     this.setState({
-      ReactionToAdd: {
-        feeling: 0,
+      responseToAdd: {
+        ...this.state.responseToAdd,
+        [propertyName]: event.target.value
       }
     })
+  }
+
+  submitInfo = (event) => {
+    console.log(`Going to review page`);
+    event.preventDefault();
+    this.props.history.push("/Review");
 
   }
 
@@ -38,13 +36,13 @@ class Comments extends Component {
     return (
       <div>
         <h2>Any comments you want to leave?</h2>
-        <form>
+        <form onSubmit={this.submitInfo}>
           <input type="text" placeholder="Comments"
             // value={this.state.reactionToAdd.feeling}
             onChange={(event) => this.handleChangeFor('comments', event)}
           />
 
-          <Link to='/Review'><button type="submit">Next</button></Link>
+          <button type="submit">Next</button>
         </form>
 
       </div>
@@ -52,4 +50,4 @@ class Comments extends Component {
   }
 }
 
-export default Comments;
+export default withRouter(connect()(Comments));

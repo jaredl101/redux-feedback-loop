@@ -12,18 +12,21 @@ class Understanding extends Component {
     }
   }
 
-  handleChangeFor = (propertyName) => (event) => {
+  handleChangeFor = (propertyName, event) => {
     this.setState({
-      reactionToAdd: {
-        ...this.state.reactionToAdd,
-        [propertyName]: event.target.value,
+      responseToAdd: {
+        ...this.state.responseToAdd,
+        [propertyName]: event.target.value
       }
-    });
+    })
   }
 
   submitInfo = (event) => {
     // entry validation is done by the required attribute
+    console.log(`Going to supported page`);
     event.preventDefault();
+    const { dispatch } = this.props;
+    dispatch({ type: 'ADD_INFO', payload: this.state.responseToAdd });
     this.props.history.push("/Supported");
   };
 
@@ -48,4 +51,4 @@ class Understanding extends Component {
 }
 
 
-export default withRouter(Understanding);
+export default withRouter(connect()(Understanding));

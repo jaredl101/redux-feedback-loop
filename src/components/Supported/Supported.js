@@ -13,17 +13,19 @@ class Supported extends Component {
     }
   }
 
-  handleChangeFor = (propertyName) => (event) => {
+
+  handleChangeFor = (propertyName, event) => {
     this.setState({
-      reactionToAdd: {
-        ...this.state.reactionToAdd,
-        [propertyName]: event.target.value,
+      responseToAdd: {
+        ...this.state.responseToAdd,
+        [propertyName]: event.target.value
       }
-    });
+    })
   }
 
   submitInfo = (event) => {
     // entry validation is done by the required attribute
+    console.log(`Going to comments page`);
     event.preventDefault();
     this.props.history.push("/Comments");
   };
@@ -47,4 +49,4 @@ class Supported extends Component {
   }
 }
 
-export default withRouter(Supported);
+export default withRouter(connect()(Supported));
