@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { withRouter } from "react-router";
+
 
 
 
@@ -20,29 +22,24 @@ class Supported extends Component {
     });
   }
 
-  handleSubmit = (event) => {
-    console.log(`Adding new order to pizzaOrder`);
-    const { dispatch } = this.props;
-    dispatch({ type: 'ADD_FEELING', payload: this.state.reactionToAdd });
-    this.setState({
-      ReactionToAdd: {
-        feeling: 0,
-      }
-    })
+  submitInfo = (event) => {
+    // entry validation is done by the required attribute
+    event.preventDefault();
+    this.props.history.push("/Comments");
+  };
 
-  }
 
   render() {
     return (
       <div>
         <h2>How well are you being supported?</h2>
-        <form>
-          <input type="text" placeholder="supported?"
+        <form onSubmit={this.submitInfo}>
+          <input type="text" placeholder="supported?" required
             // value={this.state.reactionToAdd.feeling}
             onChange={(event) => this.handleChangeFor('supported', event)}
           />
 
-          <Link to='/Comments'><button type="submit">Next</button></Link>
+          <button type="submit">Next</button>
         </form>
 
       </div>
@@ -50,4 +47,4 @@ class Supported extends Component {
   }
 }
 
-export default Supported;
+export default withRouter(Supported);

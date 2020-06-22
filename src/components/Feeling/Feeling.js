@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { withRouter } from "react-router";
 
 
 
@@ -20,17 +21,11 @@ class Feeling extends Component {
     });
   }
 
-  handleSubmit = (event) => {
-    console.log(`Adding new order to pizzaOrder`);
-    const { dispatch } = this.props;
-    dispatch({ type: 'ADD_FEELING', payload: this.state.reactionToAdd });
-    this.setState({
-      ReactionToAdd: {
-        feeling: 0,
-      }
-    })
-
-  }
+  submitInfo = (event) => {
+    // entry validation is done by the required attribute
+    event.preventDefault();
+    this.props.history.push("/Understanding");
+  };
 
   render() {
 
@@ -38,13 +33,13 @@ class Feeling extends Component {
     return (
       <div>
         <h2>How are you feeling today?</h2>
-        <form>
-          <input type="text" placeholder="How are you feeling?"
+        <form onSubmit={this.submitInfo}>
+          <input type="text" required placeholder="How are you feeling?"
             // value={this.state.reactionToAdd.feeling}
             onChange={(event) => this.handleChangeFor('feeling', event)}
           />
             
-          <Link to='/Understanding'><button type="submit">Next</button></Link>
+        <button type="submit">Next</button>
           </form>
 
       </div>
@@ -52,4 +47,4 @@ class Feeling extends Component {
   }
 }
 
-export default Feeling;
+export default withRouter(Feeling);

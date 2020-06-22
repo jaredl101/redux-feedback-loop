@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { withRouter } from "react-router";
 
 
 
@@ -20,17 +21,11 @@ class Understanding extends Component {
     });
   }
 
-  handleSubmit = (event) => {
-    console.log(`Adding new order to pizzaOrder`);
-    const { dispatch } = this.props;
-    dispatch({ type: 'ADD_FEELING', payload: this.state.reactionToAdd });
-    this.setState({
-      ReactionToAdd: {
-        feeling: 0,
-      }
-    })
-
-  }
+  submitInfo = (event) => {
+    // entry validation is done by the required attribute
+    event.preventDefault();
+    this.props.history.push("/Supported");
+  };
 
   render() {
 
@@ -38,13 +33,13 @@ class Understanding extends Component {
     return (
       <div>
         <h2>How well are you understanding the content?</h2>
-        <form>
-          <input type="text" placeholder="Understanding?"
+        <form onSubmit={this.submitInfo}>
+          <input type="text" placeholder="Understanding?" required
             // value={this.state.reactionToAdd.feeling}
             onChange={(event) => this.handleChangeFor('understanding', event)}
           />
 
-          <Link to='/Supported'><button type="submit">Next</button></Link>
+          <button type="submit">Next</button>
         </form>
 
       </div>
@@ -52,4 +47,5 @@ class Understanding extends Component {
   }
 }
 
-export default Understanding;
+
+export default withRouter(Understanding);
