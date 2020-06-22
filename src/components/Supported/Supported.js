@@ -8,9 +8,7 @@ import { withRouter } from "react-router";
 
 class Supported extends Component {
   state = {
-    reactionToAdd: {
-      supported: 0
-    }
+      support: 0
   }
 
 
@@ -40,7 +38,7 @@ class Supported extends Component {
         <form onSubmit={this.submitInfo}>
           <input type="text" placeholder="supported?" required
             // value={this.state.reactionToAdd.feeling}
-            onChange={(event) => this.handleChangeFor('supported', event)}
+            onChange={(event) => this.handleChangeFor('support', event)}
           />
 
           <button type="submit">Next</button>

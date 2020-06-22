@@ -8,9 +8,7 @@ import { withRouter } from "react-router";
 
 class Comments extends Component {
   state = {
-    reactionToAdd: {
       comments: ''
-    }
   }
 
 

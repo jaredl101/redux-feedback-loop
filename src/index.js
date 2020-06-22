@@ -9,11 +9,11 @@ import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
-const feedbackReducer = (state = [], action) => {
-  let newState = [...state];
+const feedbackReducer = (state = {  }, action) => {
+  let newState = { ...state };
   if (action.type === "ADD_INFO") {
-    // payload must be an array of order objects
-    newState = [...state, action.payload];
+    // payload need to be an object containing all of the customer info
+    newState = { ...newState, ...action.payload };
   }
   return newState;
 };
