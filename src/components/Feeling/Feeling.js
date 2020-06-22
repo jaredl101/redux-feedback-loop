@@ -7,9 +7,9 @@ import { withRouter } from "react-router";
 
 class Feeling extends Component {
   state = {
-    responseToAdd: {
-      feeling: ''
-    }
+    
+      feeling: 0
+  
   }
 
   handleChangeFor = (propertyName, event) => {
@@ -41,9 +41,8 @@ class Feeling extends Component {
           <input type="text" 
           required 
           placeholder="How are you feeling?"
-          defaultValue={this.state.responseToAdd.feeling} 
+          //defaultValue={this.state.responseToAdd.feeling} 
           //value={this.state.responseToAdd.feeling}
-          //onChange={(event) => this.handleChange(event, "zip")}
           onChange={(event) => this.handleChangeFor('feeling', event)}
           />
             

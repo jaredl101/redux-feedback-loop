@@ -9,7 +9,7 @@ import { withRouter } from "react-router";
 class Supported extends Component {
   state = {
     reactionToAdd: {
-      supported: ''
+      supported: 0
     }
   }
 
@@ -27,6 +27,8 @@ class Supported extends Component {
     // entry validation is done by the required attribute
     console.log(`Going to comments page`);
     event.preventDefault();
+    const { dispatch } = this.props;
+    dispatch({ type: 'ADD_INFO', payload: this.state.responseToAdd });
     this.props.history.push("/Comments");
   };
 

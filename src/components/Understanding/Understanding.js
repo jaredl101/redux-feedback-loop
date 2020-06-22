@@ -8,7 +8,7 @@ import { withRouter } from "react-router";
 class Understanding extends Component {
   state = {
     reactionToAdd: {
-      understanding: ''
+      understanding: 0
     }
   }
 

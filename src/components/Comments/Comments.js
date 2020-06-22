@@ -26,6 +26,8 @@ class Comments extends Component {
   submitInfo = (event) => {
     console.log(`Going to review page`);
     event.preventDefault();
+    const { dispatch } = this.props;
+    dispatch({ type: 'ADD_INFO', payload: this.state.responseToAdd });
     this.props.history.push("/Review");
 
   }
