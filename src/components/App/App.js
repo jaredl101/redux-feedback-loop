@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './../Header/Header';
 import Landing from './../Landing/Landing';
-//import Comments from './../Comments/Comments';
 import Feeling from './../Feeling/Feeling';
 import Understanding from './../Understanding/Understanding';
 import Supported from './../Supported/Supported';

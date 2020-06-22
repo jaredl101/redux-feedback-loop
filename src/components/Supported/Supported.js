@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
+import { TextField, Button } from '@material-ui/core';
+
 
 class Supported extends Component {
   state = {
@@ -39,12 +41,15 @@ class Supported extends Component {
         <br />
         <p>Please enter a score between 0-5:</p>
         <form onSubmit={this.submitInfo}>
-          <input type="number" placeholder="supported?" required
+          <TextField 
+          type="number" placeholder="supported?" required label="Supported?"
             // value={this.state.reactionToAdd.feeling}
             onChange={(event) => this.handleChangeFor('support', event)}
           />
+          <br />
+          <br />
 
-          <button type="submit">Next</button>
+          <div><Button variant="contained" color="primary" size="small" type="submit">Next</Button></div>
         </form>
 
       </div>

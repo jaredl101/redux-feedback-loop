@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   let info = req.body;
-  console.log(`Adding book`, info);
+  console.log(`Adding feedback`, info);
 
   let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
                    VALUES ($1, $2, $3, $4);`;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
+import { TextField, Button } from '@material-ui/core';
 
 class Comments extends Component {
   state = {
@@ -30,12 +31,15 @@ class Comments extends Component {
       <div>
         <h2>Any comments you want to leave?</h2>
         <form onSubmit={this.submitInfo}>
-          <input type="text" placeholder="Comments"
+          <TextField 
+          type="text" placeholder="Comments"
             // value={this.state.reactionToAdd.feeling}
             onChange={(event) => this.handleChangeFor('comments', event)}
           />
+          <br />
+          <br />
 
-          <button type="submit">Next</button>
+          <div><Button variant="contained" color="primary" size="small" type="submit">Next</Button></div>
         </form>
 
       </div>

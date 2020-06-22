@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from '@material-ui/core';
 
 class Success extends Component {
 
@@ -15,7 +16,7 @@ class Success extends Component {
       <div>
         <h1>Thank you!</h1>
         <br />
-        <button onClick={this.onClick} > Leave New Feedback</button>
+        <Button variant="contained" color="primary" size="medium" onClick={this.onClick} > Leave New Feedback</Button>
 
      </div >
     );

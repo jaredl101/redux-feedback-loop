@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
+import {TextField, Button } from '@material-ui/core';
+
 
 
 
@@ -45,17 +47,20 @@ class Feeling extends Component {
         <br />
         <p>Please enter a score between 0-5:</p>
         <form onSubmit={this.submitInfo}>
-          <input type="number" 
+          <TextField
+          type="Number"
           required 
           placeholder="How are you feeling?"
+          label="Feeling?"
             // min="1" max="5"
             // style="width: 70px"
           //defaultValue={this.state.responseToAdd.feeling} 
           //value={this.state.responseToAdd.feeling}
           onChange={(event) => this.handleChangeFor('feeling', event)}
           />
-            
-        <button type="submit">Next</button>
+            <br />
+            <br />
+          <div><Button variant="contained" color="primary" size="small" type="submit">Next</Button></div>
           </form>
 
       </div>

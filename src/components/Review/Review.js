@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 import axios from 'axios';
+import { Button } from '@material-ui/core';
 
 class Review extends Component {
 
@@ -29,14 +30,14 @@ class Review extends Component {
       <div>
         <h2>Any comments you want to leave?</h2>
         <form onSubmit={this.handleSubmit}>
-         <ul>
+         
             <p>Feelings: {this.props.feedback.feeling} </p>
             <p>Understanding: {this.props.feedback.understanding}</p>
             <p>Support: {this.props.feedback.support}</p>
             <p>Comments: {this.props.feedback.comments}</p>
-         </ul>
+         
 
-          <button type="submit">Submit</button>
+          <div><Button variant="contained" color="secondary" size="small" type="submit">Submit</Button></div>
         </form>
 
       </div>
