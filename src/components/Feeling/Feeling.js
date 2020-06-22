@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 class Feeling extends Component {
   state = {
     reactionToAdd: {
-      feeling: 0
+      feeling: ''
     }
   }
 
@@ -39,12 +39,11 @@ class Feeling extends Component {
       <div>
         <h2>How are you feeling today?</h2>
         <form>
-          <input required type="text" placeholder="How are you feeling?(0-5)"
-            value={this.state.reactionToAdd.feeling}
+          <input type="text" placeholder="How are you feeling?"
+            // value={this.state.reactionToAdd.feeling}
             onChange={(event) => this.handleChangeFor('feeling', event)}
-            required />
-          <br />
-          <br />
+          />
+            
           <Link to='/Understanding'><button type="submit">Next</button></Link>
           </form>
 
