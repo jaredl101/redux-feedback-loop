@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { Button } from '@material-ui/core';
 
 class Success extends Component {
-
+  // This component is the page the user will see upon successful data sent to server
 
   onClick = (event) => {
     event.preventDefault();
     //dispatch({ type: 'ADD_INFO', payload: this.state.responseToAdd });
     this.props.history.push("/");
-
   }
 
   render() {

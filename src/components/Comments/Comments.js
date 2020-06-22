@@ -4,11 +4,14 @@ import { withRouter } from "react-router";
 import { TextField, Button } from '@material-ui/core';
 
 class Comments extends Component {
+  // This component will ask the user if they would like to add any comments
+  // Can be empty
   state = {
       comments: ''
   }
 
   handleChangeFor = (propertyName, event) => {
+    // Manages local state based on user input
     this.setState({
       responseToAdd: {
         ...this.state.responseToAdd,
@@ -18,6 +21,7 @@ class Comments extends Component {
   }
 
   submitInfo = (event) => {
+    // submits the users info, can be empty
     console.log(`Going to review page`);
     event.preventDefault();
     const { dispatch } = this.props;

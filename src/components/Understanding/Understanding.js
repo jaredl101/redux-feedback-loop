@@ -6,6 +6,8 @@ import { TextField, Button } from '@material-ui/core';
 
 
 class Understanding extends Component {
+  // This component will ask the user their 'understanding'
+  // range is any number from 0-5
   state = {
     responseToAdd: {
       understanding: 0
@@ -13,6 +15,7 @@ class Understanding extends Component {
   }
 
   handleChangeFor = (propertyName, event) => {
+    // Manages local state based on user input
     this.setState({
       responseToAdd: {
         ...this.state.responseToAdd,
@@ -22,8 +25,8 @@ class Understanding extends Component {
   }
 
   submitInfo = (event) => {
-    // entry validation is done by the required attribute
     if (this.state.responseToAdd.understanding > 5 || this.state.responseToAdd.understanding < 0) {
+       // simple function that combines with the require attribute to verify input
       alert('Reponse must be a score between 0-5!')
       return false;
     }

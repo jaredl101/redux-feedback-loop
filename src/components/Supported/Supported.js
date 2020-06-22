@@ -5,6 +5,8 @@ import { TextField, Button } from '@material-ui/core';
 
 
 class Supported extends Component {
+  // This component will ask the user how well they are being 'supported'
+  // range is any number from 0-5
   state = {
     responseToAdd: {
       support: 0
@@ -12,6 +14,7 @@ class Supported extends Component {
   }
 
   handleChangeFor = (propertyName, event) => {
+    // Manages local state based on user input
     this.setState({
       responseToAdd: {
         ...this.state.responseToAdd,
@@ -21,8 +24,8 @@ class Supported extends Component {
   }
 
   submitInfo = (event) => {
-    // entry validation is done by the required attribute
     if (this.state.responseToAdd.support > 5 || this.state.responseToAdd.support < 0) {
+       // simple function that combines with the require attribute to verify input
       alert('Reponse must be a score between 0-5!')
       return false;
     }

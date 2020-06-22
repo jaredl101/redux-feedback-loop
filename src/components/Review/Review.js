@@ -5,9 +5,11 @@ import axios from 'axios';
 import { Button } from '@material-ui/core';
 
 class Review extends Component {
+  // This component is the screen they will see before submitting data.
+  // If this page is left, data will not be sent.
 
   handleSubmit = (event) => {
-
+    // handleSubmit sends the users data to the database
     //alert('Thanks for taking the survey! Feel free to take another one')
     event.preventDefault();
     let infoToSend = 
